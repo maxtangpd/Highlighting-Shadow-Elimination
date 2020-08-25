@@ -1,0 +1,20 @@
+﻿生成启动时间为 2018/5/14 17:04:27。
+     1>项目“F:\project\orb\orb\orb.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         F:\vs2015\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt "源.cpp"
+         源.cpp
+     1>f:\project\orb\orb\code.h(13): warning C4101: “et”: 未引用的局部变量
+       Link:
+         F:\vs2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"F:\project\orb\x64\Release\orb.exe" /NOLOGO /LIBPATH:F:\opencv\opencv\build\x64\vc14\lib opencv_world340.lib opencv_world340d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"F:\project\orb\x64\Release\orb.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\project\orb\x64\Release\orb.lib" /MACHINE:X64 "x64\Release\源.obj"
+         "x64\Release\源1.obj"
+         正在生成代码
+         1 of 273 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+           0 functions were new in current compilation
+           0 functions had inline decision re-evaluated but remain unchanged
+         已完成代码的生成
+         orb.vcxproj -> F:\project\orb\x64\Release\orb.exe
+     1>已完成生成项目“F:\project\orb\orb\orb.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:02.14
