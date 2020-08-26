@@ -1,0 +1,36 @@
+﻿生成启动时间为 2018/4/13 17:30:14。
+     1>项目“F:\project\orbt1\orbt1\orbt1.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         F:\vs2015\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt "源.cpp"
+         源.cpp
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x1c”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x3”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C3873: “0xf8f5”: 不允许将此字符作为标识符的第一个字符
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2146: 语法错误: 缺少“;”(在标识符“碦”的前面)
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x1”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x14”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x6”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x17”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C3872: “0xe2fd”: 此字符不允许在标识符中使用
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x60”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C3872: “0xe07d”: 此字符不允许在标识符中使用
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x7f”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x5”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C3872: “0xe76f”: 此字符不允许在标识符中使用
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x40”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C3873: “0xe4b3”: 不允许将此字符作为标识符的第一个字符
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C3872: “0xe416”: 此字符不允许在标识符中使用
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x7”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x1b”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): error C2018: 未知字符“0x2”
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>f:\opencv2\opencv\build\include\opencv2\core\types_c.h(1): fatal error C1004: 发现意外的文件尾
+     1>已完成生成项目“F:\project\orbt1\orbt1\orbt1.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.39
