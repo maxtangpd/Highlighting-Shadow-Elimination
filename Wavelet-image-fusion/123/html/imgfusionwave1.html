@@ -1,0 +1,210 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>imgfusionwave1</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-04-12"><meta name="DC.source" content="imgfusionwave1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%-----------------ImageFusion Based on Wavelet------------------%</span>
+<span class="comment">%----&#20302;&#39057;&#23567;&#27874;&#31995;&#25968;&#21152;&#26435;&#24179;&#22343;&#65292;&#39640;&#39057;&#21462;&#32477;&#23545;&#20540;&#36739;&#22823;&#34701;&#21512;&#31574;&#30053;</span>
+<span class="comment">%----&#23567;&#27874;&#21464;&#25442;&#21518;&#20351;&#29992;&#26368;&#31616;&#21333;&#34701;&#21512;&#35268;&#21017;&#65292;&#25928;&#26524;&#19968;&#33324;&#65292;&#27604;&#31354;&#22495;&#30452;&#25509;&#34701;&#21512;&#31245;&#24494;&#22909;&#28857;</span>
+<span class="comment">%----2009-03-20@&#20648;&#24428;&#24428;---QQ304150436---E_mail:cbbpaper@126.com---%</span>
+<span class="comment">%---------------------------------------------------------------%</span>
+clear  <span class="string">all</span>
+clc
+x1=imread(<span class="string">'1.bmp'</span>);
+x1=rgb2gray(x1);
+x1=double(x1)/255;
+
+x2=imread(<span class="string">'2.bmp'</span>);
+x2=rgb2gray(x2);
+x2=double(x2)/255;
+
+subplot(221)
+imshow(x1)
+subplot(222)
+imshow(x2)
+
+<span class="comment">%[row,col]=size(x1);</span>
+<span class="comment">%x=[];</span>
+[ca1,ch1,cv1,cd1]=dwt2(x1,<span class="string">'db1'</span>);
+[ca2,ch2,cv2,cd2]=dwt2(x2,<span class="string">'db1'</span>);
+[row,col]=size(ca1);
+
+<span class="keyword">for</span> i=1:row
+    <span class="keyword">for</span> j=1:col
+        <span class="comment">%if ca1(i,j)&gt;ca2(i,j)</span>
+         <span class="comment">%   ca(i,j)=ca1(i,j);</span>
+       <span class="comment">%else</span>
+        <span class="comment">%   ca(i,j)=ca2(i,j);</span>
+        <span class="comment">%end</span>
+<span class="comment">%       ca(i,j)=(ca1(i,j)+ca2(i,j))/2;</span>
+        <span class="keyword">if</span> abs(ca1(i,j))&gt;abs(ca2(i,j))
+           ca(i,j)=ca1(i,j);
+       <span class="keyword">else</span>
+           ca(i,j)=ca2(i,j);
+        <span class="keyword">end</span>
+<span class="comment">%         if abs(ch1(i,j))&gt;abs(ch2(i,j))</span>
+<span class="comment">%             ch(i,j)=ch1(i,j);</span>
+<span class="comment">%       else</span>
+<span class="comment">%            ch(i,j)=ch2(i,j);</span>
+<span class="comment">%         end</span>
+        ch(i,j)=(ch1(i,j)+ch2(i,j))/2;
+        cv(i,j)=(cv1(i,j)+cv2(i,j))/2;
+        cd(i,j)=(cd1(i,j)+cd2(i,j))/2;
+
+<span class="comment">%         if abs(cv1(i,j))&gt;abs(cv2(i,j))</span>
+ <span class="comment">%            cv(i,j)=cv1(i,j);</span>
+<span class="comment">%        else</span>
+<span class="comment">%            cv(i,j)=cv2(i,j);</span>
+<span class="comment">%         end</span>
+<span class="comment">%        if abs(cd1(i,j))&gt;abs(cd2(i,j))</span>
+<span class="comment">%             cd(i,j)=cd1(i,j);</span>
+<span class="comment">%        else</span>
+ <span class="comment">%           cd(i,j)=cd2(i,j);</span>
+<span class="comment">%         end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+x=idwt2(ca,ch,cv,cd,<span class="string">'db1'</span>);
+imwrite(x,<span class="string">'wavefusionV1.bmp'</span>);
+imwrite(ca1,<span class="string">'ca1.bmp'</span>);
+imwrite(ch1,<span class="string">'ch1.bmp'</span>);
+imwrite(cv1,<span class="string">'cv1.bmp'</span>);
+imwrite(cd1,<span class="string">'cd1.bmp'</span>);
+subplot(223)
+imshow(x)
+</pre><img vspace="5" hspace="5" src="imgfusionwave1_01.png" style="width:560px;height:420px;" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-ImageFusion Based on WaveletREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH%
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH低频小波系数加权平均，高频取绝对值较大融合策略
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH小波变换后使用最简单融合规则，效果一般，比空域直接融合稍微好点
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH2009-03-20@储彬彬REPLACE_WITH_DASH_DASH-QQ304150436REPLACE_WITH_DASH_DASH-E_mail:cbbpaper@126.comREPLACE_WITH_DASH_DASH-%
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-%
+clear  all
+clc
+x1=imread('1.bmp');
+x1=rgb2gray(x1);
+x1=double(x1)/255; 
+
+x2=imread('2.bmp');
+x2=rgb2gray(x2);
+x2=double(x2)/255; 
+
+subplot(221)
+imshow(x1)
+subplot(222)
+imshow(x2)
+
+%[row,col]=size(x1);
+%x=[];
+[ca1,ch1,cv1,cd1]=dwt2(x1,'db1');
+[ca2,ch2,cv2,cd2]=dwt2(x2,'db1');
+[row,col]=size(ca1);
+
+for i=1:row
+    for j=1:col
+        %if ca1(i,j)>ca2(i,j)
+         %   ca(i,j)=ca1(i,j);
+       %else 
+        %   ca(i,j)=ca2(i,j);
+        %end
+%       ca(i,j)=(ca1(i,j)+ca2(i,j))/2;
+        if abs(ca1(i,j))>abs(ca2(i,j))
+           ca(i,j)=ca1(i,j);
+       else 
+           ca(i,j)=ca2(i,j);
+        end
+%         if abs(ch1(i,j))>abs(ch2(i,j))
+%             ch(i,j)=ch1(i,j);
+%       else 
+%            ch(i,j)=ch2(i,j);
+%         end
+        ch(i,j)=(ch1(i,j)+ch2(i,j))/2;
+        cv(i,j)=(cv1(i,j)+cv2(i,j))/2;
+        cd(i,j)=(cd1(i,j)+cd2(i,j))/2;
+
+%         if abs(cv1(i,j))>abs(cv2(i,j))
+ %            cv(i,j)=cv1(i,j);
+%        else 
+%            cv(i,j)=cv2(i,j);
+%         end
+%        if abs(cd1(i,j))>abs(cd2(i,j))
+%             cd(i,j)=cd1(i,j);
+%        else 
+ %           cd(i,j)=cd2(i,j);
+%         end
+    end
+end
+x=idwt2(ca,ch,cv,cd,'db1');
+imwrite(x,'wavefusionV1.bmp');
+imwrite(ca1,'ca1.bmp');
+imwrite(ch1,'ch1.bmp');
+imwrite(cv1,'cv1.bmp');
+imwrite(cd1,'cd1.bmp');
+subplot(223)
+imshow(x)
+
+
+##### SOURCE END #####
+--></body></html>
