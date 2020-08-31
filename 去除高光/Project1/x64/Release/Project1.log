@@ -1,0 +1,18 @@
+﻿生成启动时间为 2018/5/22 19:16:32。
+     1>项目“F:\project\去除高光\Project1\Project1.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         F:\vs2015\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt high.cpp
+         high.cpp
+       Link:
+         F:\vs2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"F:\project\去除高光\x64\Release\Project1.exe" /NOLOGO /LIBPATH:F:\opencv\opencv\build\x64\vc14\lib opencv_world340.lib opencv_world340d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"F:\project\去除高光\x64\Release\Project1.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\project\去除高光\x64\Release\Project1.lib" /MACHINE:X64 x64\Release\high.obj
+         正在生成代码
+         1 of 188 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+           0 functions were new in current compilation
+           0 functions had inline decision re-evaluated but remain unchanged
+         已完成代码的生成
+         Project1.vcxproj -> F:\project\去除高光\x64\Release\Project1.exe
+     1>已完成生成项目“F:\project\去除高光\Project1\Project1.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:05.00
